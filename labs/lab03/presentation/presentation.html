@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Калашникова Д. В.">
+  <title>Презентация</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freset%2Ecss" rel="stylesheet">
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ecss" rel="stylesheet">
+  <style>
+.reveal .sourceCode { 
+overflow: visible;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Ftheme%2Fbeige%2Ecss" rel="stylesheet" id="theme">
+  
+  
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Презентация</h1>
+  <p class="subtitle">Лабораторная работа 3</p>
+  <p class="author">Калашникова Д. В.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">7 октября 2026</p>
+</section>
+
+<section>
+<section id="информация" class="title-slide slide level1">
+<h1>Информация</h1>
+
+</section>
+<section id="докладчик" class="slide level2">
+<h2>Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Калашникова Дарья Викторовна</li>
+<li>Студент</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="mailto:1132243108@pfur.ru">1132243108@pfur.ru</a></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="image/kalashnikova.jpeg" /></p>
+</div>
+</div>
+</section>
+<section id="цель-работы" class="slide level2">
+<h2>Цель работы</h2>
+<p>Освоить принципы распределения и настройки адресного пространства на
+устройствах сети</p>
+</section>
+<section id="задача-1.-сеть-172.16.20.024" class="slide level2">
+<h2>Задача 1. Сеть 172.16.20.0/24</h2>
+<p>Дано: 172.16.20.0/24. Нужно разбить на 3 подсети с максимумом узлов
+126, 62 и 62</p>
+</section>
+<section id="характеристики-исходной-сети" class="slide level2">
+<h2>Характеристики исходной сети</h2>
+<ul>
+<li><strong>Префикс:</strong> 24</li>
+<li><strong>Маска:</strong> 255.255.255.0</li>
+<li><strong>Broadcast:</strong> 172.16.20.255</li>
+<li><strong>Число подсетей:</strong> 2^6 = 64</li>
+<li><strong>Диапазон узлов:</strong> 172.16.20.1 – 172.16.20.254</li>
+</ul>
+</section>
+<section id="подсеть-1-до-126-узлов" class="slide level2">
+<h2>Подсеть 1 (до 126 узлов)</h2>
+<ul>
+<li><strong>Адрес сети:</strong> 172.16.20.0/25</li>
+<li><strong>Маска:</strong> 255.255.255.128</li>
+<li><strong>Диапазон узлов:</strong> 172.16.20.1 – 172.16.20.126</li>
+<li><strong>Broadcast:</strong> 172.16.20.127</li>
+</ul>
+<p>Для 126 узлов нужна подсеть на 128 адресов = 2^7, значит маска =
+25</p>
+</section>
+<section id="подсеть-2-до-62-узлов" class="slide level2">
+<h2>Подсеть 2 (до 62 узлов)</h2>
+<ul>
+<li><strong>Адрес сети:</strong> 172.16.20.128/26</li>
+<li><strong>Маска:</strong> 255.255.255.192</li>
+<li><strong>Диапазон узлов:</strong> 172.16.20.129 – 172.16.20.190</li>
+<li><strong>Broadcast:</strong> 172.16.20.191</li>
+</ul>
+<p>Для 62 узлов нужна подсеть на 64 адреса = 2^6, значит маска = 26</p>
+</section>
+<section id="подсеть-3-до-62-узлов" class="slide level2">
+<h2>Подсеть 3 (до 62 узлов)</h2>
+<ul>
+<li><strong>Адрес сети:</strong> 172.16.20.192/26</li>
+<li><strong>Маска:</strong> 255.255.255.192</li>
+<li><strong>Диапазон узлов:</strong> 172.16.20.193 – 172.16.20.254</li>
+<li><strong>Broadcast:</strong> 172.16.20.255</li>
+</ul>
+<p>Та же логика, что и во второй подсети, но адрес сети начинается с
+.192</p>
+</section>
+<section id="задача-2.-сеть-10.10.1.6426" class="slide level2">
+<h2>Задача 2. Сеть 10.10.1.64/26</h2>
+<p>Дано: 10.10.1.64/26. Нужно выделить подсеть на 30 узлов</p>
+</section>
+<section id="характеристики-исходной-сети-1" class="slide level2">
+<h2>Характеристики исходной сети</h2>
+<ul>
+<li><strong>Префикс:</strong> 26</li>
+<li><strong>Маска:</strong> 255.255.255.192</li>
+<li><strong>Broadcast:</strong> 10.10.1.127</li>
+<li><strong>Число подсетей:</strong> 2^4 = 16</li>
+<li><strong>Диапазон узлов:</strong> 10.10.1.65 – 10.10.1.126</li>
+</ul>
+</section>
+<section id="выделенная-подсеть-до-30-узлов" class="slide level2">
+<h2>Выделенная подсеть (до 30 узлов)</h2>
+<ul>
+<li><strong>Адрес сети:</strong> 10.10.1.64/27</li>
+<li><strong>Маска:</strong> 255.255.255.224</li>
+<li><strong>Диапазон узлов:</strong> 10.10.1.65 – 10.10.1.94</li>
+<li><strong>Broadcast:</strong> 10.10.1.95</li>
+<li><strong>Максимум подсетей:</strong> 8</li>
+</ul>
+<p>Для 30 узлов нужна подсеть на 32 адреса = 2^5, маска = 27</p>
+</section>
+<section id="задача-3.-сеть-10.10.1.026" class="slide level2">
+<h2>Задача 3. Сеть 10.10.1.0/26</h2>
+<p>Дано: 10.10.1.0/26. Нужно выделить подсеть на 14 узлов</p>
+</section>
+<section id="характеристики-исходной-сети-2" class="slide level2">
+<h2>Характеристики исходной сети</h2>
+<ul>
+<li><strong>Префикс:</strong> 26</li>
+<li><strong>Маска:</strong> 255.255.255.192</li>
+<li><strong>Broadcast:</strong> 10.10.1.63</li>
+<li><strong>Число подсетей:</strong> 2^4 = 16</li>
+<li><strong>Диапазон узлов:</strong> 10.10.1.1 – 10.10.1.62</li>
+</ul>
+</section>
+<section id="выделенная-подсеть-до-14-узлов" class="slide level2">
+<h2>Выделенная подсеть (до 14 узлов)</h2>
+<ul>
+<li><strong>Адрес сети:</strong> 10.10.1.0/28</li>
+<li><strong>Маска:</strong> 255.255.255.240</li>
+<li><strong>Диапазон узлов:</strong> 10.10.1.1 – 10.10.1.14</li>
+<li><strong>Broadcast:</strong> 10.10.1.15</li>
+<li><strong>Максимум подсетей:</strong> 4</li>
+</ul>
+<p>Для 14 узлов нужна подсеть на 16 адресов = 2^4, маска = 28</p>
+</section>
+<section id="задача-4.-сеть-2001db8c0de48" class="slide level2">
+<h2>Задача 4. Сеть 2001:db8:c0de::/48</h2>
+<p>Дано: 2001:db8:c0de::/48. Нужно разбить на 2 подсети двумя
+способами</p>
+</section>
+<section id="характеристики-исходной-сети-3" class="slide level2">
+<h2>Характеристики исходной сети</h2>
+<ul>
+<li><strong>Тип:</strong> зарезервирован для документации и
+примеров</li>
+<li><strong>Префикс:</strong> 48</li>
+<li><strong>Маска:</strong> FFFF:FFFF:FFFF:0000:0000:0000:0000:0000</li>
+<li><strong>Диапазон устройств:</strong> 2001:db8:c0de:: –
+2001:db8:c0de:ffff:ffff:ffff:ffff:ffff</li>
+</ul>
+</section>
+<section id="разбиение-по-id-подсети" class="slide level2">
+<h2>Разбиение по ID подсети</h2>
+<ul>
+<li>2001:db8:c0de:0001::/64</li>
+<li>2001:db8:c0de:0002::/64</li>
+</ul>
+<p>Используются биты с 49 по 64, маска расширяется до /64</p>
+</section>
+<section id="разбиение-по-id-интерфейса" class="slide level2">
+<h2>Разбиение по ID интерфейса</h2>
+<ul>
+<li>2001:db8:c0de:0000:1000::/68</li>
+<li>2001:db8:c0de:0000:2000::/68</li>
+</ul>
+<p>Отрезаем полубайт (4 бита) от адреса узла, маска сдвигается с /64 на
+/68</p>
+</section>
+<section id="задача-5.-сеть-2a026b864" class="slide level2">
+<h2>Задача 5. Сеть 2a02:6b8::/64</h2>
+<p>Дано: 2a02:6b8::/64. Нужно разбить на 2 подсети двумя способами</p>
+</section>
+<section id="характеристики-исходной-сети-4" class="slide level2">
+<h2>Характеристики исходной сети</h2>
+<ul>
+<li><strong>Тип:</strong> глобальный</li>
+<li><strong>Префикс:</strong> 64</li>
+<li><strong>Маска:</strong> FFFF:FFFF:FFFF:FFFF:0000:0000:0000:0000</li>
+<li><strong>Диапазон устройств:</strong> 2a02:6b8:: –
+2a02:6b8:0000:0000:ffff:ffff:ffff:ffff</li>
+</ul>
+</section>
+<section id="разбиение-по-id-подсети-1" class="slide level2">
+<h2>Разбиение по ID подсети</h2>
+<ul>
+<li>2a02:6b8:0000:0001::/64</li>
+<li>2a02:6b8:0000:0002::/64</li>
+</ul>
+<p>Используем биты с 49 по 64, зарезервированные под подсети</p>
+</section>
+<section id="разбиение-по-id-интерфейса-1" class="slide level2">
+<h2>Разбиение по ID интерфейса</h2>
+<ul>
+<li>2a02:6b8:0000:0000:1000::/68</li>
+<li>2a02:6b8:0000:0000:2000::/68</li>
+</ul>
+<p>Отрезаем 4 бита от адреса узла, маска сдвигается с /64 до /68</p>
+</section>
+<section id="выводы" class="slide level2">
+<h2>Выводы</h2>
+<p>Получены навыки разработки таблиц адресации, дробления сетей на
+подсети и настройки сервера с двойным стеком</p>
+</section>
+<section id="список-литературы" class="slide level2">
+<h2>Список литературы</h2>
+<ol type="1">
+<li><p>IETF. RFC 791: Internet Protocol [Электронный ресурс]. — URL:
+https://datatracker.ietf.org/doc/html/rfc791 (дата обращения:
+07.10.2026)</p></li>
+<li><p>IETF. RFC 4632: Classless Inter-domain Routing (CIDR)
+[Электронный ресурс]. — URL:
+https://datatracker.ietf.org/doc/html/rfc4632 (дата обращения:
+07.10.2026)</p></li>
+<li><p>IETF. RFC 4291: IP Version 6 Addressing Architecture [Электронный
+ресурс]. — URL: https://datatracker.ietf.org/doc/html/rfc4291 (дата
+обращения: 07.10.2026)</p></li>
+<li><p>IETF. RFC 4193: Unique Local IPv6 Unicast Addresses [Электронный
+ресурс]. — URL: https://datatracker.ietf.org/doc/html/rfc4193 (дата
+обращения: 07.10.2026)</p></li>
+<li><p>Red Hat. Documentation [Электронный ресурс]. — URL:
+https://docs.redhat.com/ (дата обращения: 07.10.2026)</p></li>
+</ol>
+</section></section>
+    </div>
+  </div>
+
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ejs"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fnotes%2Fnotes%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fsearch%2Fsearch%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fzoom%2Fzoom%2Ejs"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
