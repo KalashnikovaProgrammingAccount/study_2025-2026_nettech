@@ -1,0 +1,437 @@
+---
+## Front matter
+lang: ru-RU
+title: Адресация IPv4 и IPv6. Настройка маршрутизации по протоколу RIP
+subtitle: Лабораторная работа №6 
+author:
+  - Калашникова Д.В.
+institute:
+  - Российский университет дружбы народов, Москва, Россия
+date: 20 ноября 2026
+
+## i18n babel
+babel-lang: russian
+babel-otherlangs: english
+
+## Formatting pdf
+toc: false
+toc-title: Содержание
+slide_level: 2
+aspectratio: 169
+section-titles: true
+theme: metropolis
+header-includes:
+ - \metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
+---
+
+# Информация
+
+## Докладчик
+
+:::::::::::::: {.columns align=center}
+::: {.column width="70%"}
+
+  * Калашникова Дарья Викторовна
+  * Студент
+  * Российский университет дружбы народов
+  * [1132240693@pfur.ru]
+:::
+::: {.column width="30%"}
+
+:::
+::::::::::::::
+
+# Цель работы 
+
+Изучить принципы маршрутизации по протоколу RIP в IPv4- и IPv6-сетях и освоить настройку сетевого оборудования.
+
+# Выполнение лабораторной работы
+
+## Сборка топологии сети
+
+Запускаем GNS3 VM и GNS3. Создаём новый проект с именем `lab06` и размещаем устройства, соединяя их в соответствии с топологией на рисунке 6.1.
+
+![Топология проекта](image/1.png){#fig:001 width=70%}
+
+## Настройка IPv4 на оконечных устройствах
+
+Настраиваем IPv4-адреса на PC1 и PC2.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv4 на PC1](image/2.png){#fig:002 width=100%}
+:::
+::: {.column width="48%"}
+![Настройка IPv4 на PC2](image/3.png){#fig:003 width=100%}
+:::
+::::::::::::::
+
+## Настройка IPv4 на маршрутизаторе gw-01
+
+Настраиваем IPv4-адреса на интерфейсах маршрутизатора `msk-dvkalashnikova-gw-01`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv4 на gw-01](image/4.png){#fig:004 width=100%}
+:::
+::: {.column width="48%"}
+![Проверка IPv4 на gw-01](image/5.png){#fig:005 width=60%}
+:::
+::::::::::::::
+
+## Настройка IPv4 на маршрутизаторе gw-02
+
+Настраиваем IPv4-адреса на `msk-dvkalashnikova-gw-02`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv4 на gw-02](image/6.png){#fig:006 width=100%}
+:::
+::: {.column width="48%"}
+![Проверка IPv4 на gw-02](image/7.png){#fig:007 width=100%}
+:::
+::::::::::::::
+
+## Настройка IPv4 на маршрутизаторе gw-03
+
+Настраиваем IPv4-адреса на `msk-dvkalashnikova-gw-03`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv4 на gw-03](image/8.png){#fig:008 width=100%}
+:::
+::: {.column width="48%"}
+![Проверка IPv4 на gw-03](image/9.png){#fig:009 width=80%}
+:::
+::::::::::::::
+
+## Настройка IPv4 на маршрутизаторе gw-04
+
+Настраиваем IPv4-адреса на `msk-dvkalashnikova-gw-04`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv4 на gw-04](image/10.png){#fig:010 width=100%}
+:::
+::: {.column width="48%"}
+![Проверка IPv4 на gw-04](image/11.png){#fig:011 width=80%}
+:::
+::::::::::::::
+
+## Настройка IPv6 на оконечных устройствах
+
+Присваиваем IPv6-адреса PC1 и PC2.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv6 на PC1](image/12.png){#fig:012 width=90%}
+:::
+::: {.column width="48%"}
+![Настройка IPv6 на PC2](image/13.png){#fig:013 width=90%}
+:::
+::::::::::::::
+
+## Настройка IPv6 на маршрутизаторе gw-01
+
+Настраиваем IPv6-адреса на интерфейсах маршрутизатора `msk-dvkalashnikova-gw-01`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv6 на gw-01](image/14.png){#fig:014 width=100%}
+:::
+::: {.column width="48%"}
+![Проверка IPv6 на gw-01](image/15.png){#fig:015 width=80%}
+:::
+::::::::::::::
+
+## Настройка IPv6 на маршрутизаторе gw-02
+
+Настраиваем IPv6-адреса на `msk-dvkalashnikova-gw-02`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv6 на gw-02](image/16.png){#fig:016 width=80%}
+:::
+::: {.column width="48%"}
+![Проверка IPv6 на gw-02](image/17.png){#fig:017 width=90%}
+:::
+::::::::::::::
+
+## Настройка IPv6 на маршрутизаторе gw-03
+
+Настраиваем IPv6-адреса на `msk-dvkalashnikova-gw-03`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv6 на gw-03](image/18.png){#fig:018 width=80%}
+:::
+::: {.column width="48%"}
+![Проверка IPv6 на gw-03](image/19.png){#fig:019 width=80%}
+:::
+::::::::::::::
+
+## Настройка IPv6 на маршрутизаторе gw-04
+
+Настраиваем IPv6-адреса на `msk-dvkalashnikova-gw-04`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка IPv6 на gw-04](image/20.png){#fig:020 width=100%}
+:::
+::: {.column width="48%"}
+![Проверка IPv6 на gw-04](image/21.png){#fig:021 width=80%}
+:::
+::::::::::::::
+
+## Настройка протокола RIP на gw-01
+
+Настраиваем RIP в качестве протокола динамической маршрутизации на `msk-dvkalashnikova-gw-01`.
+
+![Настройка RIP на gw-01](image/22.png){#fig:022 width=30%}
+
+## Настройка протокола RIP на gw-02
+
+Настраиваем RIP на `msk-dvkalashnikova-gw-02`.
+
+![Настройка RIP на gw-02](image/23.png){#fig:023 width=35%}
+
+## Настройка протокола RIP на gw-03
+
+Настраиваем RIP на `msk-dvkalashnikova-gw-03`.
+
+![Настройка RIP на gw-03](image/24.png){#fig:024 width=35%}
+
+## Настройка протокола RIP на gw-04
+
+Настраиваем RIP на `msk-dvkalashnikova-gw-04`.
+
+![Настройка RIP на gw-04](image/25.png){#fig:025 width=35%}
+
+## Проверка настроек RIP на gw-01
+
+Убеждаемся, что RIP настроен корректно на `msk-dvkalashnikova-gw-01`.
+
+![Проверка RIP на gw-01](image/26.png){#fig:026 width=35%}
+
+## Проверка настроек RIP на gw-02
+
+Проверяем RIP на `msk-dvkalashnikova-gw-02`.
+
+![Проверка RIP на gw-02](image/27.png){#fig:027 width=35%}
+
+## Проверка настроек RIP на gw-03
+
+Проверяем RIP на `msk-dvkalashnikova-gw-03`.
+
+![Проверка RIP на gw-03](image/28.png){#fig:028 width=35%}
+
+## Проверка настроек RIP на gw-04
+
+Проверяем RIP на `msk-dvkalashnikova-gw-04`.
+
+![Проверка RIP на gw-04](image/29.png){#fig:029 width=35%}
+
+## Проверка маршрута прохождения пакетов
+
+После этого проверяем пути прохождения пакетов с PC1 до PC2.
+
+![Проверка пути пакетов](image/30.png){#fig:030 width=35%}
+
+## Анализ метрик протокола RIP
+
+Затем проверяем метрики протокола RIP.
+
+![Метрики RIP](image/31.png){#fig:031 width=70%}
+
+## Имитация сбоя сети (отключение интерфейса)
+
+Отключаем интерфейс на маршрутизаторе `msk-dvkalashnikova-gw-02`.
+
+![Отключение интерфейса](image/32.png){#fig:032 width=70%}
+
+## Проверка работы RIP при сбое
+
+Проверяем метрики RIP на `msk-dvkalashnikova-gw-01` и выполняем ping: видим, что пакеты не доходят, но через несколько секунд связь восстанавливается.
+
+![Восстановление связи](image/33.png){#fig:033 width=35%}
+
+## Восстановление работы интерфейса
+
+После этого снова включаем интерфейс на `msk-dvkalashnikova-gw-02`.
+
+![Включение интерфейса](image/34.png){#fig:034 width=70%}
+
+## Настройка RIPng на gw-01
+
+Настраиваем RIPng для IPv6-сетей на `msk-dvkalashnikova-gw-01`.
+
+![Настройка RIPng на gw-01](image/35.png){#fig:035 width=70%}
+
+## Настройка RIPng на gw-02
+
+Настраиваем RIPng на `msk-dvkalashnikova-gw-02`.
+
+![Настройка RIPng на gw-02](image/36.png){#fig:036 width=70%}
+
+## Настройка RIPng на gw-03
+
+Настраиваем RIPng на `msk-dvkalashnikova-gw-03`.
+
+![Настройка RIPng на gw-03](image/37.png){#fig:037 width=70%}
+
+## Настройка RIPng на gw-04
+
+Настраиваем RIPng на `msk-dvkalashnikova-gw-04`.
+
+![Настройка RIPng на gw-04](image/38.png){#fig:038 width=70%}
+
+## Проверка маршрутов IPv6
+
+После этого проверяем пути прохождения пакетов.
+
+![Проверка пути пакетов IPv6](image/39.png){#fig:039 width=35%}
+
+## Анализ метрик протокола RIPng
+
+Также проверяем метрики протокола RIPng.
+
+![Метрики RIPng](image/40.png){#fig:040 width=60%}
+
+## Имитация сбоя сети для IPv6
+
+Отключаем интерфейс на маршрутизаторе `msk-dvkalashnikova-gw-02`.
+
+![Отключение интерфейса](image/41.png){#fig:041 width=35%}
+
+## Проверка метрик RIPng после сбоя
+
+Снова проверяем метрики RIPng.
+
+![Метрики RIPng после отключения](image/42.png){#fig:042 width=70%}
+
+## Проверка связи после сбоя
+
+Далее выполняем ping с PC1 на PC2.
+
+![Ping с PC1 на PC2](image/43.png){#fig:043 width=70%}
+
+## Восстановление работы интерфейса (IPv6)
+
+Затем снова включаем интерфейс на `msk-dvkalashnikova-gw-02`.
+
+![Включение интерфейса](image/44.png){#fig:044 width=70%}
+
+## Проверка связи после восстановления
+
+И снова выполняем ping с PC1 на PC2.
+
+![Повторный ping](image/45.png){#fig:045 width=70%}
+
+## Захват и анализ трафика
+
+Также смотрим, какие пакеты перехватил Wireshark.
+
+![Захват пакетов в Wireshark](image/46.png){#fig:046 width=70%}
+
+# Самостоятельная часть
+
+## Проектирование топологии для самостоятельной работы
+
+Строим схему, как на рисунке 6.2.
+
+![Схема самостоятельной части](image/47.png){#fig:047 width=70%}
+
+## Настройка адресов на PC1 и PC2
+
+Настраиваем IPv4- и IPv6-адреса на оконечных устройствах.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Настройка на PC1](image/48.png){#fig:048 width=100%}
+:::
+::: {.column width="48%"}
+![Настройка на PC2](image/49.png){#fig:049 width=100%}
+:::
+::::::::::::::
+
+## Конфигурация шлюза gw-01
+
+Настраиваем IP-адреса на маршрутизаторе `msk-dvkalashnikova-gw-01`.
+
+:::::::::::::: {.columns}
+::: {.column width="32%"}
+![Конфигурация gw-01](image/50.png){#fig:050 width=100%}
+:::
+::: {.column width="32%"}
+![Конфигурация gw-01](image/51.png){#fig:051 width=100%}
+:::
+::: {.column width="32%"}
+![Конфигурация gw-01](image/52.png){#fig:052 width=100%}
+:::
+::::::::::::::
+
+## Конфигурация шлюза gw-02
+
+Настраиваем IP-адреса на маршрутизаторе `msk-dvkalashnikova-gw-02`.
+
+:::::::::::::: {.columns}
+::: {.column width="32%"}
+![Конфигурация gw-02](image/53.png){#fig:053 width=100%}
+:::
+::: {.column width="32%"}
+![Конфигурация gw-02](image/54.png){#fig:054 width=100%}
+:::
+::: {.column width="32%"}
+![Конфигурация gw-02](image/55.png){#fig:055 width=100%}
+:::
+::::::::::::::
+
+## Конфигурация шлюза gw-03
+
+Настраиваем IP-адреса на маршрутизаторе `msk-dvkalashnikova-gw-03`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Конфигурация gw-03](image/56.png){#fig:056 width=100%}
+:::
+::: {.column width="48%"}
+![Конфигурация gw-03](image/57.png){#fig:057 width=100%}
+:::
+::::::::::::::
+
+## Конфигурация шлюза gw-04
+
+Настраиваем IP-адреса на маршрутизаторе `msk-dvkalashnikova-gw-04`.
+
+:::::::::::::: {.columns}
+::: {.column width="48%"}
+![Конфигурация gw-04](image/58.png){#fig:058 width=100%}
+:::
+::: {.column width="48%"}
+![Конфигурация gw-04](image/59.png){#fig:059 width=80%}
+:::
+::::::::::::::
+
+## Проверка протоколов RIP и RIPng
+
+Проверяем настройки RIP и RIPng.
+
+![Проверка RIP и RIPng](image/60.png){#fig:060 width=70%}
+
+## Финальная проверка связи
+
+И после этого выполняем ping.
+
+![Проверка](image/68.png){#fig:068 width=35%}
+
+# Выводы
+
+В ходе выполнения данной работы были успешно изучены принципы маршрутизации по протоколу RIP в IPv4- и IPv6-сетях и принципы настройки сетевого оборудования.
+
+# Список литературы
+
+1. GNS3 Documentation [Электронный ресурс] // GNS3. – URL: https://docs.gns3.com/docs/ (дата обращения: 20.11.2026).
+2. FRRouting Documentation [Электронный ресурс] // FRRouting. – URL: https://docs.frrouting.org/ (дата обращения: 20.11.2026).
+3. Malkin G. RFC 2453: RIP Version 2 [Электронный ресурс] / G. Malkin. – IETF, 1998. – URL: https://datatracker.ietf.org/doc/html/rfc2453 (дата обращения: 20.11.2026).
+4. Malkin G. RFC 2080: RIPng for IPv6 [Электронный ресурс] / G. Malkin, R. Minnear. – IETF, 1997. – URL: https://datatracker.ietf.org/doc/html/rfc2080 (дата обращения: 20.11.2026).
+5. Hedrick C. RFC 1058: Routing Information Protocol [Электронный ресурс] / C. Hedrick. – IETF, 1988. – URL: https://datatracker.ietf.org/doc/html/rfc1058 (дата обращения: 20.11.2026).
